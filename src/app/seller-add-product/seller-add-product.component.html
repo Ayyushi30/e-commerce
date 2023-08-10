@@ -1,0 +1,78 @@
+<div class="addProduct">
+    <form class="shadow-lg p-3 mb-5 bg-white rounded" [formGroup]="addProductForm" (ngSubmit)="addedProduct()">
+        <h1 style="text-align: center;">Add New Product</h1>
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" class="form-control" id="productName" formControlName="product_name"
+                placeholder="Enter Product Name">
+            <p class="error_message">
+                <ng-container>
+                    <span
+                        *ngIf="addProductForm.get('product_name')?.hasError('required') && (addProductForm.get('product_name')?.touched || addProductForm.get('product_name')?.dirty)">This
+                        field is required.</span>
+                </ng-container>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="productPrice">Product Price</label>
+            <input type="text" class="form-control" id="productPrice" formControlName="product_price"
+                placeholder="Enter Product Price">
+            <p class="error_message">
+                <ng-container>
+                    <span
+                        *ngIf="addProductForm.get('product_price')?.hasError('required') && (addProductForm.get('product_price')?.touched || addProductForm.get('product_price')?.dirty)">This
+                        field is required.</span>
+                </ng-container>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="productColor">Product Color</label>
+            <input type="text" class="form-control" id="productColor" formControlName="product_color"
+                placeholder="Enter Product Color">
+            <p class="error_message">
+                <ng-container>
+                    <span
+                        *ngIf="addProductForm.get('product_color')?.hasError('required') && (addProductForm.get('product_color')?.touched || addProductForm.get('product_color')?.dirty)">This
+                        field is required.</span>
+                </ng-container>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="productCompany">Product Company</label>
+            <input type="text" class="form-control" id="productCompany" formControlName="product_company"
+                placeholder="Enter Product Company">
+            <p class="error_message">
+                <ng-container>
+                    <span
+                        *ngIf="addProductForm.get('product_company')?.hasError('required') && (addProductForm.get('product_company')?.touched || addProductForm.get('product_company')?.dirty)">This
+                        field is required.</span>
+                </ng-container>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="productDescription">Product Description</label>
+            <input type="text" class="form-control" id="productDescription" formControlName="product_description"
+                placeholder="Enter Product Description">
+            <p class="error_message">
+                <ng-container>
+                    <span
+                        *ngIf="addProductForm.get('product_description')?.hasError('required') && (addProductForm.get('product_description')?.touched || addProductForm.get('product_description')?.dirty)">This
+                        field is required.</span>
+                </ng-container>
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="productImage">Product Image URL</label>
+            <input type="url" class="form-control" id="productImage" formControlName="product_image"
+                placeholder="Enter Product Image URL">
+            <p class="error_message">
+                <ng-container>
+                    <span
+                        *ngIf="addProductForm.get('product_image')?.hasError('required') && (addProductForm.get('product_image')?.touched || addProductForm.get('product_image')?.dirty)">This
+                        field is required.</span>
+                </ng-container>
+            </p>
+        </div>
+        <button type="submit" class="btn btn-primary button" [disabled]="!addProductForm.valid">Submit</button>
+    </form>
+</div>

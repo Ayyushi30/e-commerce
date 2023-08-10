@@ -1,0 +1,38 @@
+<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d112294.79712345106!2d76.9616933343159!3d28.412846894055328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x390d3d96a5cd7b35%3A0xeaafcf4b8d6c7a85!2sAntino%20Labs%20Private%20Limited%2C%20Badshahpur%20Sohna%20Road%20Highway%2C%20Sector%2049%2C%20Gurugram%2C%20Haryana%2C%20India!3m2!1d28.412720699999998!2d77.0440959!5e0!3m2!1sen!2sus!4v1691566218645!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe> -->
+<div class="container-fluid">
+    <ngb-carousel *ngIf="popularProducts">
+        <ng-template ngbSlide *ngFor="let item of popularProducts">
+            <div class="wrapper">
+                <img class="product-header-img" src="{{item.product_image}}" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+                <h3>{{item.product_name}}</h3>
+                <p>{{item.product_description}}</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    <div class="product_list_wrapper">
+        <h1 style="text-align: center; margin-top: 50px">Trendy Products</h1>
+        <div class="row">
+            <div class="col-sm-3" *ngFor="let item of trendyProducts">
+                <div class="product-item">
+                    <img src="{{item.product_image}}">
+                    <div class="product-details">
+                        <h6 class="name-head">{{item.product_name}}</h6>
+                        <div class="product-price">
+                            <p>Price: {{item.product_price}}</p>
+                        </div>
+                        <div class="product_color">
+                            <p>Color: {{item.product_color}}</p>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <a href="">View Details</a>
+                        <a href="">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

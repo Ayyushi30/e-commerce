@@ -1,0 +1,57 @@
+.auth {
+    height: 100vh;
+    width: 100%;
+}
+
+.heading {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.card {
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 470px;
+}
+.card-title{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+form{
+    border-radius: 10px;
+}
+.card-body{
+    border-radius: 10px;
+}
+.error-messages{
+    color: red;
+    font-size: 15px;
+}
+.info-icon {
+    margin-left: 5px; /* Adjust as needed to control the spacing */
+    color: #007bff; /* Change the color to suit your design */
+    cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+}
+input.ng-invalid.ng-touched {
+    border: red 1px solid;
+}
+.link{
+    padding-top: 10px;
+    cursor:pointer;
+}
+.link:active{
+    color: blue;
+}
+.link:visited{
+    color: red;
+}
+.link:hover{
+    text-decoration: underline;
+    color: blueviolet;
+}
+.error{
+    text-align: center;
+    color: red;
+}

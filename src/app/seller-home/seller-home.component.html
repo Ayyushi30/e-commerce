@@ -1,0 +1,16 @@
+<div class="productList">
+    <div class="products">
+        <div class="card p-3 mb-5" *ngFor="let product of productList">
+            <!-- <img class="card-img-top" [src]="product.product_image" style=" height: 220px;" -->
+            <img class="card-img-top" [src]="product.product_image"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" style="font-weight: bold;">{{product.product_name}}</h5>
+                <p class="card-text" style="color: red;">Rs. {{product.product_price}}</p>
+                <fa-icon [icon]="icon" (click)="deleteProduct(product.id)"></fa-icon>
+                <a class="adjust-update-link" [routerLink]="'/seller-product-update/' + product.id"><fa-icon
+                        [icon]="editIcon"></fa-icon></a>
+            </div>
+        </div>
+    </div>
+</div>

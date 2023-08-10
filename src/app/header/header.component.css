@@ -1,0 +1,63 @@
+.navbar-brand {
+    padding-left: 20px;
+    font-weight: bold
+}
+
+.navbar-nav {
+    float: right;
+}
+
+form {
+    right: 25%;
+    position: relative;
+}
+
+.navbar-collapse {
+    flex-direction: row-reverse;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.search-product-list {
+    list-style-type: none;
+    position: absolute;
+    /* display: list-item; */
+    z-index: 10;
+    background-color: #fff;
+    width: 207px;
+    top: 38px;
+    /* border: 1px solid #ddd; */
+}
+
+.search-product-list li {
+    /* border: 1px solid #ddd; */
+    padding: 5px;
+    width: 207px;
+}
+
+.search-product-list li a {
+    cursor: pointer;
+}
+
+.cart {
+    margin-right: 5px
+}
+
+.badge {
+    background-color: red;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 50%;
+}
+button{
+    border: none;
+    margin-top: 5px;
+    margin-right: 5px;
+}

@@ -1,0 +1,85 @@
+<div class="auth">
+    <!-- SIGNUP FORM -->
+    <div *ngIf="isSignupForm" class="card col d-flex justify-content-center"
+        [style.min-height]="isSignupForm? '420px' : '320px'">
+        <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            <form class="my-form" [formGroup]="signupForm" (ngSubmit)="signup()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name*</label>
+                    <input type="name" class="form-control" id="name" formControlName="name" aria-describedby="name">
+                    <p class="error-messages">
+                        <ng-container *ngFor=" let error of error_messages.name">
+                            <span
+                                *ngIf="signupForm.get('name')?.hasError(error.type) && (signupForm.get('name')?.touched || signupForm.get('name')?.dirty)">{{error.message}}</span>
+                        </ng-container>
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address*</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+                        aria-describedby="emailHelp">
+                    <p class="error-messages">
+                        <ng-container *ngFor=" let error of error_messages.email">
+                            <span
+                                *ngIf="signupForm.get('email')?.hasError(error.type) && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">{{error.message}}</span>
+                        </ng-container>
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password*
+                        <span class="info-icon"><i class="fa fa-question-circle"></i></span>
+                    </label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                </div>
+                <p class="error-messages">
+                    <ng-container *ngFor=" let error of error_messages.email">
+                        <span
+                            *ngIf="signupForm.get('password')?.hasError(error.type) && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">{{error.message}}</span>
+                    </ng-container>
+                </p>
+                <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>
+                <div class="link">
+                    <a (click)="goToLogin()">Already have an account? Click here to login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- LOGIN FORM -->
+    <div *ngIf="!isSignupForm" class="card col d-flex justify-content-center">
+        <div class="card-body">
+            <h5 class="card-title text-center">Log In</h5>
+            <p class="error">{{loginError}}</p>
+            <form class="my-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address*</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+                        aria-describedby="emailHelp">
+                    <p class="error-messages">
+                        <ng-container *ngFor=" let error of error_messages.email">
+                            <span
+                                *ngIf="signupForm.get('email')?.hasError(error.type) && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">{{error.message}}</span>
+                        </ng-container>
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password*
+                        <span class="info-icon"><i class="fa fa-question-circle"></i></span>
+                    </label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                </div>
+                <p class="error-messages">
+                    <ng-container *ngFor=" let error of error_messages.password">
+                        <span
+                            *ngIf="signupForm.get('password')?.hasError(error.type) && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">{{error.message}}</span>
+                    </ng-container>
+                </p>
+                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+                <div class="link">
+                    <a (click)="goToSignup()">Don't have an account? Click here to Sign-Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

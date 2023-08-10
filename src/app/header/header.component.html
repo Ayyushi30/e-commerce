@@ -1,0 +1,80 @@
+<!-- <div class="d-flex justify-content-between w-100"> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+    <a class="navbar-brand" routerLink="/">E-Com</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngSwitch]="menuType">
+      <ul class="navbar-nav mr-auto" *ngSwitchCase="'default'">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink='sign-in'>Seller</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink=''>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login/Signp</a>
+        </li>
+        <li class="nav-item">
+          <!-- <a class="nav-link" href="#">Cart({{cartItems}})</a> -->
+          <div class="notification">
+            <nz-badge [nzCount] = "cartItems" nzSize="small">
+              <button nz-button nzType="default" nzShape="circle">
+                <span nz-icon nzType="shopping-cart"></span>
+              </button>
+            </nz-badge>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto" *ngSwitchCase="'seller'">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="seller-home">Product List<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='seller-add-product'>Add Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="logout()">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Welcome, {{sellerName | titlecase}}</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto" *ngSwitchCase="'user'">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="seller-home">Seller<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='seller-add-product'>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="userLogout()">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Welcome, {{userName | titlecase}}</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0 d-flex" *ngIf = "menuType==='default'">
+        <div>
+            <input 
+            #searchInput
+            class="form-control mr-sm-2" 
+            type="search" 
+            (blur)="hideSearch()" 
+            (keyup)="searchProduct($event)" 
+            placeholder="Search" 
+            aria-label="Search">
+            <ul class="search-product-list" *ngIf="searchProducts">
+              <li *ngFor="let item of searchProducts">
+                <a>{{item.product_name}}</a>
+              </li>
+            </ul>
+        </div>
+        <div>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="onSubmit(searchInput.value)">Search</button>
+        </div>
+      </form>
+    </div>
+  </nav>
+<!-- </div> -->
